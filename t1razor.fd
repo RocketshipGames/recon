@@ -1,0 +1,4 @@
+\ProvidesFile{t1razor.fd}
+\DeclareFontFamily{T1}{razor}{}
+\DeclareFontShape{T1}{razor}{m}{n}{ <-> virtrazor}{}
+\pdfmapline{+razor\space <razor.ttf\space <T1-WGL4.enc}

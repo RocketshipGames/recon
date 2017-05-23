@@ -1,0 +1,674 @@
+\documentclass[14pt,dvipsnames]{extarticle}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{microtype}
+\DisableLigatures{encoding=*,family=razor}
+
+\usepackage{url}
+\usepackage{calc}
+\usepackage{xspace}
+
+\usepackage{lipsum}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+
+\usepackage{multicol}
+\newenvironment{columns}
+{\begin{multicols}{2}
+%\@afterindentfalse%\@afterheading
+}
+{\end{multicols}
+\ignorespacesafterend
+}
+
+\usepackage[dvipsnames]{colortbl}
+
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}%
+    \fbox{\color{currentcolor}#2}}%
+}
+
+%%----------------------------------------------------------------------
+%%-- Notes
+
+\usepackage[many]{tcolorbox}
+
+\newtcolorbox{recon}[1][]{
+  colback=RedOrange!16,
+  colframe=RedOrange,
+  fonttitle=\bfseries,
+  /tcb/fontupper=\it,
+%  title=RECON+,
+  #1}
+
+%%----------------------------------------------------------------------
+%%-- Font
+
+\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+
+%%----------------------------------------------------------------------
+%%-- Geometry
+
+\usepackage[letterpaper, portrait, margin=0.5in, bottom=0.5in, footskip=0.25in]{geometry}
+
+\setlength{\columnsep}{0.35in}
+
+%\raggedcolumns
+
+%%----------------------------------------------------------------------
+%%-- Headers & Footers
+
+%%----------------------------------------------------------------------
+%%-- Sections
+
+\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage}
+
+%\titleformat{\section}[hang]
+%  {\usefont{T1}{qhv}{b}{n}}
+%  {}
+%  {0em}
+%  {\hspace{-0.4pt}\Large \thesection\hspace{0.6em}}
+
+\titleformat{name=\section,numberless}[block]
+  {\Large\usefont{T1}{razor}{m}{n}} % 
+  {}
+  {0pt}
+  {\colorsection}
+
+\newcommand{\pagetitle}[1]{%
+  \clearpage
+  \section{#1}
+}
+
+\newcommand{\colorsection}[1]{%
+  \colorbox{CornflowerBlue}{\parbox{\dimexpr\textwidth-2\fboxsep}{\hspace{.375\baselineskip}\textcolor{White}{#1}\vspace{.25\baselineskip}}}}
+
+\titleformat{name=\subsection,numberless}[block]
+  {\large\usefont{T1}{razor}{m}{n}} % 
+  {}
+  {0pt}
+  {\colorsubsection}
+
+\newcommand{\colorsubsection}[1]{%
+  \colorbox{CornflowerBlue!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\hspace{.375\baselineskip}\textcolor{CornflowerBlue}{#1}\vspace{.25\baselineskip}}}}
+
+\titlespacing*{\section}
+{0pt}% left margin
+{8pt}% before
+{0pt}% after
+
+\titlespacing*{\subsection}
+{0pt}% left margin
+{0pt}% before
+{-9pt}% after
+
+\newcommand{\missionrule}[1]{\noindent\textbf{#1}\xspace}
+
+%%----------------------------------------------------------------------
+%%-- Lists
+
+\newenvironment{squishitemize}
+{\begin{list}{$\bullet$}{%
+    \setlength{\itemsep}{2pt}%
+    \setlength{\parsep}{2pt}%
+    \setlength{\topsep}{2pt}%
+    \setlength{\parskip}{0pt} %
+%    \setlength{\labelwidth}{.5in}%
+%    \setlength{\labelsep}{0.05in} %
+%    \setlength{\leftmargin}{0.2in} %
+    \renewcommand{\labelitemi}{--}}}
+  {\end{list}}
+
+%%----------------------------------------------------------------------
+%%-- Paragraphs
+
+\setlength{\parskip}{0.8\baselineskip}%
+
+\newcommand{\reconplus}{\textbf{RECON+}\xspace}
+
+\setcounter{secnumdepth}{0}
+
+\usepackage[dotinlabels]{titletoc}
+
+\titlecontents{section}[7mm]% [left]
+    {\addvspace{-8pt}}% {above}
+    {\bf\contentslabel{7mm}}% {before with label}
+    {}% {before without label}
+    {\bf\titlerule*[2.7mm]{.}\contentspage}% {filler and page}
+    [\addvspace{0mm}]% [after]
+
+\titlecontents{subsection} [17mm]
+    {}
+    {\contentslabel{10mm}}
+    {}
+    {\titlerule*[2.7mm]{.}\contentspage}
+
+\titlecontents{subsubsection} [30mm]
+    {}
+    {\contentslabel{13mm}}
+    {}
+    {\titlerule*[2.7mm]{.}\contentspage}
+
+\setcounter{tocdepth}{1}
+
+
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{F}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{E}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{O}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{latexsym}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyfoot[C]{\footnotesize\usefont{T1}{razor}{m}{n}[~\thepage~]}
+\fancyfoot[R]{\footnotesize\usefont{T1}{razor}{m}{n}[~RECON+~]}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+
+
+\usepackage{eso-pic}
+
+\newcommand\BackgroundPic[1]{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill%
+\centering%
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}%
+\vfill%
+}}}
+
+\newcommand{\squelchbackground}{%
+\ClearShipoutPicture
+}
+
+\newcommand{\restorebackground}{%
+\setbackground
+}
+\newcommand{\setbackground}{%
+\AddToShipoutPicture{\BackgroundPic{art/background/background.pdf}}%
+}
+
+%%----------------------------------------------------------------------
+%%----------------------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\includepdf[pages={1}]{art/cover/cover.pdf}
+
+\clearpage
+
+%\setbackground
+\setcounter{page}{1}
+\fancyfoot[L]{\footnotesize\usefont{T1}{razor}{m}{n}[~Introduction~]}
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics{art/cover/title.pdf}  
+\end{figure*}
+
+  
+\noindent\reconplus is a set of unofficial firefight missions for Corvus Belli's
+\emph{Infinity} miniatures games.  Based around 150pt games, they are
+slightly larger than the official starter box missions but half the
+points of a traditional 300pt game.  Although they make great stepping
+stones to full size tournament play for beginners, they are also fun
+and challenging tactical games for experienced players. The action is
+fast, games are quick, different weapons and tactics have increased
+emphasis, and hard choices have to be made in designing army lists.
+
+This packet is an iteration and refinement of the original unofficial
+RECON format by Guerilla Miniatures Games\footnote{Version~2.0
+  (February 2017) available at \url{http://bit.ly/2pSYxBm}}, which in
+turn derived from the official ITS missions.  A few ambiguities are
+clarified, and a number of tweaks made to the rules and missions based
+on community preferences developed playing this format frequently in
+local casual tournaments.
+
+\tableofcontents
+
+\vfill
+
+\hfill{\small[ \reconplus draft \today ]}
+
+\clearpage
+\fancyfoot[L]{\footnotesize\usefont{T1}{razor}{m}{n}[~Rules~]}
+
+\section{Squad Construction}
+
+Players simultaneously select their army lists at the start of a match
+after establishing their mission, opponent, play area, and classified
+objectives (explained below).  In a tournament setting players may
+construct two army lists chosen from the same faction (including
+sectorial) to use throughout the event.  Select which list to use each
+round after learning your mission, opponent, play area, and choosing a
+classified objective.
+
+\reconplus army lists are chosen according to the following rules:
+
+\begin{squishitemize}
+\item You may select up to at most~150 army points.
+\item Normal rules for SWC, Remotes, etc., apply.
+\item Named characters with cost more than~35pts cannot be selected.
+%\item At most half of the models may be Impetuous or Extremely Impetuous.
+\item Only one model with the Impetuous or Extremely Impetuous
+  characteristics may be included per every~4 models; the Frenzy
+  characteristic is not limited.
+\item Only one model with~2 or more wounds/structure may be included per
+  every~4 models.
+\item Only a single fireteam of any type may be included or active at
+  any time.  It may contain a maximum of~3 members and may not be
+  reformed to more than that.
+\item The entire army list must be organized within a single combat
+  group.
+\end{squishitemize}
+
+Players or event organizers may optionally also permit either or both
+of the following:
+
+\begin{squishitemize}
+\item \emph{Spec-Ops:} You may include a single Spec-Ops troop of up to 12 XP.
+\item \emph{Mercs:} All mercenaries may be selected regardless of normal
+  faction restrictions.
+\end{squishitemize}
+
+All other standard \emph{Infinity}, \emph{Human Sphere}, and ITS rules
+and FAQs apply.
+
+\begin{recon}
+  N.B.: The Impetuous restrictions here differ from those in the
+  original RECON packet.
+  %(February~2017), which limits army lists to
+%  a single such model.
+\end{recon}
+
+
+
+\section{Play Area}
+
+\reconplus games are played in an area~24'' wide and~30--36'' long.
+Be sure to measure the play area precisely before choosing classified
+objectives or lists.  Player edges are the short ends of the play
+area.  Deployment zones are measured from those edges as follows:
+
+\bigskip
+\centerline{
+\begin{tabular}{cc}
+  \rowcolor{CornflowerBlue}\textcolor{White}{\textbf{Play Area Length}} & \textcolor{White}{\textbf{Deployment Zone}}\\
+  36'' & 6''\\
+  \rowcolor{CornflowerBlue!10} 35'' & 5.5''\\
+  34'' & 5''\\
+  \rowcolor{CornflowerBlue!10} 33'' & 4.5''\\
+\end{tabular}%
+\quad\quad%
+\begin{tabular}{cc}
+  \rowcolor{CornflowerBlue}\textcolor{White}{\textbf{Play Area Length}} & \textcolor{White}{\textbf{Deployment Zone}}\\
+  32'' & 4''\\
+  \rowcolor{CornflowerBlue!10} 31'' & 3.5''\\
+  30'' & 3''\\
+  \\
+\end{tabular}
+}
+
+\clearpage
+Be sure to place terrain to minimize long firelanes.  At least one
+piece of terrain should touch each play area edge to prevent open
+spaces running its full length.  The tallest terrain should be toward
+the middle of the play area, to prevent creating a ``sniper bowl.''
+
+\begin{recon}
+  The variation in play area length is motivated by accommodating the mats
+  in Corvus Belli's official scenery packs, such as are included in
+  the \emph{Operation: Icestorm} and other starter sets.  These vary
+  in length but most are actually less than 36'' long.
+\end{recon}
+
+\section{Gameplay}
+
+ITS rules are used except when overridden by these rules or missions.
+The following rules apply in all \reconplus games unless noted
+otherwise by a mission or event.
+
+\subsection{Pregame}
+
+Match preparation follows these rules.  They are no different from
+starting an ITS game, but are included here for convenience and to
+make clear they apply.
+
+\missionrule{Startup Sequence.}  The following sequence is used in
+setting up each match---
+
+\begin{squishitemize}  
+\item Establish mission, opponents \& factions, and play area.
+
+\item Select classified objectives (see below).
+  
+\item Simultaneously reveal chosen army lists (the public information).
+
+\item Initiative Roll.
+
+\item Deployment, including HVTs (see below).
+\end{squishitemize}
+
+\missionrule{Classified Objectives.}  Before choosing their army list,
+each player draws~2 classified objective cards and secretly chooses~1
+to keep in play for themselves (do not reveal either).  Achieving
+classified objectives, including the Secure HVT option (see below), is
+worth~2 objective points in each \reconplus mission.  They may only be
+scored once.
+
+\missionrule{High Value Targets.}  Each player must deploy a High
+Value Target~(HVT) model at the beginning of their deployment.  These
+must be placed at least~4'' outside of both deployment zones, directly
+on the play area itself (not on any terrain).  A player may opt at any
+point to replace their chosen classified objective with the Secure HVT
+classified objective:
+
+\begin{squishitemize}
+\item \textbf{Secure HVT} is accomplished if at game end the player
+  has a troop not in a Null state inside the zone of control of the
+  opposing player's HVT, while at the same time there are no enemy
+  troops not in a Null state within the zone of control of their own
+  HVT.
+\end{squishitemize}
+
+\clearpage
+\subsection{In-Game}
+
+The following in-game rules apply to each \reconplus mission.
+
+\missionrule{Command Tokens: Strategic Use.}  The second player may
+only nullify a single Regular Order from their opponent's order pool
+at the beginning of the game.
+
+%Command tokens may otherwise be used as normal, except a player may
+%never have more than one active fireteam of any type.
+
+\begin{recon}
+  N.B.: The current original RECON packet prohibits
+  Strategic Use of Command Tokens.
+%  N.B.: The most recent original RECON packet completely prohibits
+%  Strategic Use of Command Tokens, which \reconplus does not.
+\end{recon}
+
+\missionrule{Specialists.}  Hackers, Doctors, Engineers, Forward
+Observers, Paramedics, and troops with the Chain of Command special
+skill are considered Specialist Troops in all missions.  Repeaters and
+G: Servants cannot be used to perform tasks reserved for Specialist
+Troops.
+
+\missionrule{Exclusion Zone.}  Some missions include an Exclusion Zone
+in the play area configuration.  Troops may not use Airborne
+Deployment, Forward Deployment, Mechanized Deployment, Infiltration
+special skills, or the deployment rule of the Impersonation special
+skill to deploy within an Exclusion Zone.  Troops that suffer
+Dispersion are not affected by Exclusion Zones.
+
+\missionrule{Hack Mission Objective.} Some missions make the following
+short skill available.
+
+{\setlength\fboxrule{2pt}
+\cfbox{LimeGreen}{\begin{minipage}{6.5in}
+  \colorbox{LimeGreen}{\parbox{\linewidth-2\fboxsep}{\textcolor{White}{\textbf{\large Hack Mission Objective} \hfill Short Skill}}}\\
+  \colorbox{SkyBlue}{\parbox{\linewidth-2\fboxsep}{\textcolor{White}{Attack}}}
+
+  \medskip
+  \textsc{Requirements}
+  \begin{squishitemize}
+  \item The user must be a Specialist Troop model (not a marker) in
+    base contact with an Antenna or Console.
+  \end{squishitemize}
+
+  \medskip
+  \colorbox{Gray!24}{\begin{minipage}{\linewidth-2\fboxsep}
+
+  \medskip      
+      \textsc{Effects}
+      \begin{squishitemize}
+      \item The user makes a Normal WIP roll to hack an Antenna or
+        Console in base contact.  Hackers receive a +3 MOD on this
+        roll.
+
+      \item If successful, the acting player takes control of the
+        Antenna or Console (mark it appropriately).  The other player
+        loses control of that mission element if they had previously
+        hacked it (remove any such marker).
+        
+%      \item This skill may be invoked as many times as desired if the
+%        user continues to fail.
+      \end{squishitemize}
+    \end{minipage}}
+\end{minipage}}}
+
+\subsection{Endgame}
+
+By default each \reconplus mission concludes as follows.
+
+\missionrule{End Game.}  All matches end after~3 game turns or the
+time limit (see below) is reached.  Unless noted otherwise by a
+mission, \emph{Retreat!} rules apply as given in the main
+\emph{Infinity} rulebook except the game does not end automatically
+once one player has no models in play.  The remaining player continues
+to play out the turns attempting to score objectives.
+
+\begin{recon}
+  This is different from most ITS and original RECON missions, in
+  which the match ends on the game turn in which a player enters
+  \emph{Retreat!}, rather than being played out.
+\end{recon}
+
+% In addition, unless the mission notes otherwise, if one of the players
+% starts their active turn in a \emph{Retreat!} situation, then the
+% match will end with the conclusion of the game turn.
+
+\missionrule{Time Limit.} Matches in organized play run for~75 minutes
+unless announced otherwise.  Event organizer(s) must make clear
+beforehand how this will be enforced, with either an immediate hard
+stop or permitting the current player or even game turn to be
+completed.
+
+\begin{recon}
+  For beginner and casual events the time limit should be loose, with
+  time reserved in the schedule (e.g.,~90 minute rounds) for matches
+  to finish out their final game turn.
+\end{recon}
+
+\missionrule{Destroyed.} Models are considered destroyed when they
+enter the Dead state, are in a Null state at the end of the game, or
+have not been deployed by the end of the game.  Those models not
+destroyed are considered to have survived, as are models in
+\emph{Retreat!} which exit the play area through the long edge of
+their player's deployment zone.
+
+\subsection{Scoring}
+
+\missionrule{Scoring.}  All \reconplus missions are scored out of a
+possible~9 objective points.  Players do NOT automatically receive
+maximum points for eliminating their opponent.
+  
+\begin{recon}
+  If your opponent cripples your ability to achieve the mission
+  objectives before you eliminate them, then you have not actually
+  earned a full victory!
+\end{recon}
+
+\missionrule{Domination.}  A player dominates a Sector, as defined by
+some missions, if their models within that Sector comprise more army
+points than those of their opponent.  Models are considered to be
+solely within the single Sector, if any, containing more than half
+their base.
+
+Only troops not in a Null state, markers representing troops, AI
+Beacons, Proxies, and G: Servant models are counted.  Troops
+possessing the Shasvastii special skill are also counted when in the
+Spawn Embryo or any non-Null state.  The extra army points provided by
+Baggage equipment possessed by troops not in a Null state are also
+counted.
+
+%\clearpage
+\section{Mission Elements}
+
+Most \reconplus missions revolve around interacting with elements of
+the \emph{Infinity} world as defined in each scenario.  These elements
+may be represented by a physical 3D piece or a marker as is
+convenient.  In either case they are considered to have the
+silhouettes given below and provide cover or block LOF accordingly,
+except Civilians, which do neither.
+
+\begin{recon}
+  This is a slight variance from the main \emph{Infinity} rulebook, in
+  which mission elements such as objectives only grant cover when
+  physically represented by 3D terrain pieces.
+\end{recon}
+
+Mission elements cannot be directly targeted by attacks other than
+those provided by the mission, but can be affected by attacks through
+dispersion and other mechanics.  Any player that damages a mission
+element automatically loses the match at its conclusion and grants
+their opponent~2 objective points (within the maximum of~9).
+
+\bigskip
+\centerline{
+\begin{tabular}{cccccc}
+  \rowcolor{CornflowerBlue}\textcolor{White}{\textbf{Element}} & \textcolor{White}{\textbf{Type}} & \textcolor{White}{\textbf{ARM}} & \textcolor{White}{\textbf{BTS}} & \textcolor{White}{\textbf{W/STR}} & \textcolor{White}{\textbf{Silhouette}} \\
+  Antenna & Scenery Item & 4 & 3 & 2 & S6~ (40mm base x 55mm high)\\
+  \rowcolor{CornflowerBlue!10} Console & Scenery Item & 0 & 0 & 1 & S5~ (40mm base x 45mm high)\\
+  Civilian & Neutral Model & 0 & 0 & 1 & S1- (20mm base x 25mm high)\\
+  \rowcolor{CornflowerBlue!10} HVT & Neutral Model & 0 & 0 & 1 & S2~ (25mm base x 40mm high)\\
+  Tech-Coffin & Scenery Item & 1 & 0 & 1 & S5~ (40mm base x 45mm high)\\
+\end{tabular}
+}
+
+\begin{recon}
+  Civilians have a 20mm base here to denote them as diminutive,
+  cowering, and not cover (by \emph{Human Sphere} they do not block
+  LOF).  Feel free to use 25mm bases/markers.
+\end{recon}
+
+\section{Materials}
+
+As always, for an organized event, players should bring:
+\begin{squishitemize}
+\item Two printed copies of your complete army lists, for yourself and
+  the event organizer(s).
+
+\item Printed copies of your courtesy army lists to give to your
+  opponent each round.
+
+\item All models, dice, markers, templates, and other materials needed
+  to play.
+\end{squishitemize}
+
+\vfill
+\centerline{\includegraphics[width=0.8\linewidth]{art/rifle.pdf}}
+\vfill
+\vbox to 0pt{}
+
+\clearpage
+\fancyfoot[L]{\footnotesize\usefont{T1}{razor}{m}{n}[~\rightmark~]}
+
+\input{mission-annihilation}
+
+\input{mission-frontline}
+
+\input{mission-exfiltrate}
+
+\input{mission-seizetheantennas}
+
+\input{mission-smashandgrab}
+
+\input{mission-sweepandclear}
+
+\clearpage
+\section{Reference Guides}
+
+\subsection{Random Mission Table}
+\bigskip
+\centerline{
+\begin{tabular}{C{0.75in}C{1.75in}C{0.5in}C{1.25in}L{2in}}
+  \rowcolor{CornflowerBlue}\textcolor{White}{\textbf{D20}} & \textcolor{White}{\textbf{Mission}} & \textcolor{White}{\textbf{Page}} & \textcolor{White}{\textbf{Elements}} & \textcolor{White}{\textbf{Description}}\\
+  1--4 & Annihilate & \pageref{mission:annihilation} & - & Kill them all.\\
+  \rowcolor{CornflowerBlue!10} 5--7 & Break Through & \pageref{mission:frontline} & - & Puncture the frontline.\\
+  8--10 & Exfiltrate & \pageref{mission:exfiltrate} & 8 Civilians & Extract your agents.\\
+  \rowcolor{CornflowerBlue!10} 11--14  & Seize the Antennas & \pageref{mission:seizetheantennas} & 3 Antennas & Control the transmitters.\\
+  15--17 & Smash and Grab & \pageref{mission:smashandgrab} & 2 Tech-Coffins & Steal the data.\\
+  \rowcolor{CornflowerBlue!10} 18--20 & Sweep and Clear & \pageref{mission:sweepandclear} & 2 Consoles & Search the area.\\
+\end{tabular}
+}
+
+\subsection{Play Area Configurations}
+
+\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth-2\fboxsep}{\centering\textcolor{White}{\textbf{Annihilate}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-annihilate}
+\end{minipage}
+\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth}{\centering\textcolor{White}{\textbf{Break Through}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-breakthrough}
+\end{minipage}
+\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth}{\centering\textcolor{White}{\textbf{Exfiltrate}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-exfiltrate}
+\end{minipage}
+\hfill
+\hbox to 0pt{}
+
+\noindent\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth}{\centering\textcolor{White}{\textbf{Seize the Antennas}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-seizetheantennas}
+\end{minipage}
+\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth-2\fboxsep}{\centering\textcolor{White}{\textbf{Smash and Grab}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-smashandgrab}
+\end{minipage}
+\hfill
+\begin{minipage}{2in}\centering
+\colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth}{\centering\textcolor{White}{\textbf{Sweep and Clear}}}}
+
+\smallskip
+\includegraphics[scale=0.9]{maps/map-sweepandclear}
+\end{minipage}
+\hfill
+\hbox to 0pt{}
+
+\end{document}
+
+%% ----------------------------------------------------------------------
+\pagetitle{Scoresheets/Tables}
+
+Page of scorecards?
+
+Page of tables for random missions?
+Setup summaries?
+Objectives required?
+
+\end{document}

@@ -1,0 +1,129 @@
+%%----------------------------------------------------------------------
+\pagetitle{Mission: Exfiltrate}
+\label{mission:exfiltrate}
+
+\subsection{Play Area Configuration}
+
+As part of their army deployment, before placing their HVT, each
+player deploys~4 Civilian models inside the half of the Exclusion Zone
+(see below) on their opponent's side of the play area.  Civilians must
+be placed at least~4'' away from all other Civilians.  They cannot be
+placed on any terrain requiring a Climb entire order to reach.  No
+model or marker may be deployed in base contact with any Civilian or
+vice versa.
+
+Once deployed, take~2 Agent and~2 Citizen importance markers (or
+suitable proxies indistinguishable on the back side).  Turn them face
+down, shuffle them, and randomly assign one to each of your Civilians
+without being revealed to you or your opponent.
+
+\missionrule{Exclusion Zone.}  There is an Exclusion Zone
+extending~6'' on both sides of the short centerline of the play area
+(12'' long total) and covering the full extent between long edges.
+
+\subsection{Mission Rules}
+
+The Interrogate Civilian common skill on the following page is
+available in this mission.
+
+Once a Civilian has been revealed as an Agent, it may be directly
+targeted by the opposing player as an enemy troop and no penalty is
+incurred by them for damaging it.
+
+% The Synchronize Civilian common skill cannot be applied to the
+% Civilians in this mission.  Instead the following Common Skill is
+% available.
+
+\subsection{End Game}
+
+There are no special end game conditions for this mission.
+%(\emph{Retreat!} applies).
+
+\subsection{Scoring}
+
+\missionrule{Exfiltrated.}  An Agent has been Exfiltrated if it is
+wholly inside its player's deployment zone.
+
+\missionrule{Secured.}  An Agent is Secured if it is wholly outside
+the Exclusion Zone on its player's side of the play area.  An
+Exfiltrated Agent is necessarily Secured, but not vice versa.
+
+{\setlength\fboxrule{2pt}
+\cfbox{CornflowerBlue}{\begin{minipage}{6.5in}
+  \colorbox{CornflowerBlue}{\parbox{\linewidth-2\fboxsep}{\textcolor{White}{\textbf{\large Interrogate Civilian} \hfill Short Movement Skill}}}\\
+  \colorbox{SkyBlue}{\parbox{\linewidth-2\fboxsep}{\textcolor{White}{Attack}}}
+
+  \medskip
+  \textsc{Requirements}
+  \begin{squishitemize}
+  \item The user must be a model (not a marker) in base contact with a
+    Civilian deployed by their player.
+
+  \item The user cannot already be in CivEvac state with a Civilian,
+    unless it possesses the Doctor, Paramedic, or Chain of Command
+    special skills, in which case it cannot already be in CivEvac
+    state with~2 Civilians.
+
+  \item The user cannot be Impetuous or Extremely Impetuous, including
+    through the Frenzy characteristic having triggered.
+
+  \item The user cannot possess the G: Servant or G: Synchronized
+    special skills, or its Type of Troop be REM.
+    
+  \item The user cannot be part of a fireteam of any kind, and this
+    short skill cannot be performed as part of a coordinated order.
+    
+%  \item The targeted Civilian cannot be in the CivEvac state with an
+%    enemy model.
+  \end{squishitemize}
+
+  \medskip
+  \colorbox{Gray!24}{\begin{minipage}{\linewidth-2\fboxsep}
+
+  \medskip      
+      \textsc{Effects}
+      \begin{squishitemize}
+      \item The user makes a Normal WIP roll to synchronize a
+        designated Civilian in base contact that was placed by their
+        player.  Doctors and Paramedics receive a +3 MOD on this roll.
+        Models from the Tohaa or Combined Army factions (including any
+        sectorial) suffer a -3 MOD.
+
+      \item If the roll is successful, the Civilian's importance
+        marker is revealed to both players if it has not already.  If,
+        and only if, the Civilian is an Agent, it enters the CivEvac
+        state with the user (\emph{Human Sphere}, page~95).
+
+      \item If the roll fails, the opposing player moves the Civilian
+        as far as possible following general movement rules up to 2''
+        from the user.
+      \end{squishitemize}
+    \end{minipage}}
+\end{minipage}}}
+
+\vspace*{-5pt}
+
+\noindent%
+\begin{tabular}{L{5.85in}C{0.5in}C{0.25in}C{0.25in}}
+    \rowcolor{CornflowerBlue} & \textcolor{White}{\textbf{Obj.}} & \multicolumn{2}{c}{\textcolor{White}{\textbf{Player}}}\\
+  \rowcolor{CornflowerBlue}\textcolor{White}{\textbf{Condition}} &
+                                                                   \textcolor{White}{\textbf{Pts}} & \textcolor{White}{\textbf{1}} & \textcolor{White}{\textbf{2}} \\
+  %%
+  %% ----------------------------------------------
+  Have at least one of your Agents in CivEvac state at game end. & 1 & $\Box$ & $\Box$ \\
+  \rowcolor{CornflowerBlue!10} Have both of your Agents in CivEvac state at game end. & 1 & $\Box$ & $\Box$ \\
+  \\[-9pt]
+  Have at least one of your Agents Secured at game end. & 1 & $\Box$ & $\Box$ \\
+  \rowcolor{CornflowerBlue!10} Have both of your Agents Secured at game end. & 1 & $\Box$ & $\Box$ \\
+  \\[-9pt]  
+  Have at least one of your Agents Exfiltrated at game end. & 1 & $\Box$ & $\Box$ \\
+  \rowcolor{CornflowerBlue!10} Have both of your Agents Exfiltrated at game end. & 1 & $\Box$ & $\Box$ \\
+  \\[-9pt]
+  Have more Agents in CivEvac state at game end than your opponent. & 1 & $\Box$ & $\Box$ \\
+  %%
+  %% ----------------------------------------------
+  \\[-9pt]  
+  \rowcolor{CornflowerBlue!10} Classified objective achieved. & 2 & $\Box$ & $\Box$ \\
+  \\
+\multicolumn{2}{r}{\textbf{Sum:}} & $\rule{0.25in}{0.15mm}$ & $\rule{0.25in}{0.15mm}$\\
+\end{tabular}
