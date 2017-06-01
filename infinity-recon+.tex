@@ -243,7 +243,7 @@ local casual tournaments.
 
 \vfill
 
-\hfill{\small[ \reconplus draft \today ]}
+\hfill{\small[ \reconplus release \today ]}
 
 \clearpage
 \fancyfoot[L]{\footnotesize\usefont{T1}{razor}{m}{n}[~Rules~]}
@@ -260,22 +260,27 @@ classified objective.
 
 \reconplus army lists are chosen according to the following rules:
 
-\begin{squishitemize}
+\vspace{-1em}
+\begin{itemize}
 \item You may select up to at most~150 army points.
 \item Normal rules for SWC, Remotes, etc., apply.
-\item Named characters with cost more than~35pts cannot be selected.
+\item Models with troop classification Character that cost more
+  than~35pts are not permitted.
 %\item At most half of the models may be Impetuous or Extremely Impetuous.
 \item Only one model with the Impetuous or Extremely Impetuous
-  characteristics may be included per every~4 models; the Frenzy
+  characteristics may be included per every~4 models.  The Frenzy
   characteristic is not limited.
-\item Only one model with~2 or more wounds/structure may be included per
-  every~4 models.
+
+\item Only one model with multiple wounds or structure, Symbiont
+  Armor, or V: No Wound Incapacitation may be included per every~4
+  models.
+  
 \item Only a single fireteam of any type may be included or active at
   any time.  It may contain a maximum of~3 members and may not be
   reformed to more than that.
 \item The entire army list must be organized within a single combat
   group.
-\end{squishitemize}
+\end{itemize}
 
 Players or event organizers may optionally also permit either or both
 of the following:
@@ -291,19 +296,20 @@ and FAQs apply.
 
 \begin{recon}
   N.B.: The Impetuous restrictions here differ from those in the
-  original RECON packet.
+  original RECON packet, and specific clarifications made on Symbiont
+  Armor and No Wound Incapacitation.
   %(February~2017), which limits army lists to
 %  a single such model.
 \end{recon}
 
-
-
+\clearpage
 \section{Play Area}
 
-\reconplus games are played in an area~24'' wide and~30--36'' long.
-Be sure to measure the play area precisely before choosing classified
-objectives or lists.  Player edges are the short ends of the play
-area.  Deployment zones are measured from those edges as follows:
+\reconplus games take place in a play area~24'' wide and~30--36''
+long, with 36'' long recommended but not critical.  Make sure to
+measure the play area precisely before choosing classified objectives
+or lists.  Player edges are the short ends of the play area.
+Deployment zones are measured from those player edges as follows:
 
 \bigskip
 \centerline{
@@ -324,17 +330,17 @@ area.  Deployment zones are measured from those edges as follows:
 \end{tabular}
 }
 
-\clearpage
 Be sure to place terrain to minimize long firelanes.  At least one
 piece of terrain should touch each play area edge to prevent open
 spaces running its full length.  The tallest terrain should be toward
 the middle of the play area, to prevent creating a ``sniper bowl.''
 
 \begin{recon}
-  The variation in play area length is motivated by accommodating the mats
-  in Corvus Belli's official scenery packs, such as are included in
-  the \emph{Operation: Icestorm} and other starter sets.  These vary
-  in length but most are actually less than 36'' long.
+  Flexibility in length is motivated by Corvus Belli's starter set
+  mats, which vary in length.
+  % such as are included in
+  % the \emph{Operation: Icestorm} and other starter sets.  These vary
+  % in length but most are actually less than 36'' long.
 \end{recon}
 
 \section{Gameplay}
@@ -386,7 +392,6 @@ classified objective:
   HVT.
 \end{squishitemize}
 
-\clearpage
 \subsection{In-Game}
 
 The following in-game rules apply to each \reconplus mission.
@@ -456,19 +461,39 @@ short skill available.
 
 \subsection{Endgame}
 
-By default each \reconplus mission concludes as follows.
+The following rules outline end game conditions for \reconplus
+missions.
 
-\missionrule{End Game.}  All matches end after~3 game turns or the
-time limit (see below) is reached.  Unless noted otherwise by a
-mission, \emph{Retreat!} rules apply as given in the main
-\emph{Infinity} rulebook except the game does not end automatically
-once one player has no models in play.  The remaining player continues
-to play out the turns attempting to score objectives.
+\missionrule{End Game.}  Before any lists are constructed, players or
+event organizers must select one of the following end game conditions
+to apply to all missions:
 
+\vspace{-1em}
+\begin{itemize}
+\item \textbf{RECON+:} All matches end after~3 game turns or the time
+  limit (see below) is reached.  Unless noted otherwise by a mission,
+  \emph{Retreat!} rules apply as given in the main \emph{Infinity}
+  rulebook except the game does not end once one player has no models
+  in play.  The remaining player may play out the game turns
+  attempting to score objectives.
+
+\item \textbf{ITS:} All matches end after~3 game turns or the time
+  limit (see below) is reached.  \emph{Retreat!} rules apply unless
+  noted otherwise by a mission.  The match ends at the conclusion of
+  the current game turn if either player is eliminated or starts their
+  active turn in a \emph{Retreat!} situation (which requires
+  \emph{Retreat!} rules to be in play for the mission).
+\end{itemize}
+
+\vspace{-1em}
 \begin{recon}
-  This is different from most ITS and original RECON missions, in
-  which the match ends on the game turn in which a player enters
-  \emph{Retreat!}, rather than being played out.
+  The \reconplus end game conditions avoid creating an awkward
+  disincentive in which players want to destroy their opponent's
+  models, but not so quickly as to make the game end before they
+  themselves can capture objectives.  However, almost all tournaments
+  use the ITS end game conditions and players hoping to compete in
+  such should be familiar with the peculiar strategic considerations
+  those rules create.
 \end{recon}
 
 % In addition, unless the mission notes otherwise, if one of the players
@@ -510,14 +535,12 @@ maximum points for eliminating their opponent.
 some missions, if their models within that Sector comprise more army
 points than those of their opponent.  Models are considered to be
 solely within the single Sector, if any, containing more than half
-their base.
-
-Only troops not in a Null state, markers representing troops, AI
-Beacons, Proxies, and G: Servant models are counted.  Troops
-possessing the Shasvastii special skill are also counted when in the
-Spawn Embryo or any non-Null state.  The extra army points provided by
-Baggage equipment possessed by troops not in a Null state are also
-counted.
+their base.  Only troops not in a Null state, markers representing
+troops, AI Beacons, Proxies, and G: Servant models are counted.
+Troops possessing the Shasvastii special skill are also counted when
+in the Spawn Embryo or any non-Null state.  The extra army points
+provided by Baggage equipment possessed by troops not in a Null state
+are also counted.
 
 %\clearpage
 \section{Mission Elements}
@@ -559,23 +582,23 @@ their opponent~2 objective points (within the maximum of~9).
   LOF).  Feel free to use 25mm bases/markers.
 \end{recon}
 
-\section{Materials}
+%\section{Materials}
+%
+%As always, for an organized event, players should bring:
+%\begin{squishitemize}
+%\item Two printed copies of your complete army lists, for yourself and
+%  the event organizer(s).
 
-As always, for an organized event, players should bring:
-\begin{squishitemize}
-\item Two printed copies of your complete army lists, for yourself and
-  the event organizer(s).
-
-\item Printed copies of your courtesy army lists to give to your
-  opponent each round.
-
-\item All models, dice, markers, templates, and other materials needed
-  to play.
-\end{squishitemize}
+%\item Printed copies of your courtesy army lists to give to your
+%  opponent each round.
+%
+%\item All models, dice, markers, templates, and other materials needed
+%  to play.
+%\end{squishitemize}
 
 \vfill
-\centerline{\includegraphics[width=0.8\linewidth]{art/rifle.pdf}}
-\vfill
+\centerline{\includegraphics[width=0.5\linewidth]{art/rifle.pdf}}
+%\vfill
 \vbox to 0pt{}
 
 \clearpage
@@ -610,6 +633,10 @@ As always, for an organized event, players should bring:
 \end{tabular}
 }
 
+\bigskip
+\centerline{\textit{Seize the Antennas or Annihilate are recommended for introductory games.}}
+
+\vspace{-0.5em}
 \subsection{Play Area Configurations}
 
 \hfill
@@ -636,6 +663,7 @@ As always, for an organized event, players should bring:
 \hfill
 \hbox to 0pt{}
 
+\vspace{-0.5em}
 \noindent\hfill
 \begin{minipage}{2in}\centering
 \colorbox{CornflowerBlue}{\parbox[t][12pt]{\linewidth}{\centering\textcolor{White}{\textbf{Seize the Antennas}}}}
