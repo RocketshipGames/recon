@@ -1,0 +1,30 @@
+2017/09/18
+
+- Made the restriction on multi-wound models include all models with
+  multiple profiles, i.e., now explicitly including Transmutation.
+
+- Limited Mercenaries extra to 37pts and .5 SWC additional cost to be
+  in line with ITS9 Soldier of Fortune event option.
+
+- Season 9 updates: No nullifying Orders since all RECON+ lists fall
+  under the Reduced Combat Groups rule, and TAGs have Fatality L1.
+
+- Dispersion is reduced to a fixed 8".
+
+- Reworded Secure HVT to eliminate some ambiguity.
+
+- Reworded Antenna/Console hacking as "connect" rather than "control."
+
+- Reworded Datacube possession as "hold" rather than "control."
+
+- Clarified Sweep & Clear that the Consoles must be connected and have
+  a model in contact to contribute toward domination.
+
+- Tech-Coffins moved 2" farther apart in Smash & Grab.
+
+- Multiple updates to Exfiltrate:
+  ++ Added note that it is a challenging, low scoring mission;
+  ++ There is now only 1 decoy;
+  ++ 4" buffer on Civilians is relative only to your own Civilians;
+  ++ You may Discover your Civilians to secretly look at their status;
+  ++ You may expend a Command Token to reroll a failed interrogation.
